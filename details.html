@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Story Detail</title>
+    <link rel="stylesheet" href="bootstrap-5.2.3-dist/css/bootstrap.min.css">
+    <script src="bootstrap-5.2.3-dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Georgia', serif;
+            padding: 50px 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .details-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            font-family: 'Cursive', sans-serif;
+            color: #d63384;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img id="eventImage" class="details-image" src="" alt="Event Image">
+        <h2 id="eventTitle"></h2>
+        <p id="eventDescription"></p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventParam = urlParams.get('event');
+
+        const eventDetails = {
+            firstConversation: {
+                title: 'First Conversation',
+                description: 'တကယ်ကလေ ဘယ်သူ့မှစကားစမပြောဖူးဘူး ဆရာမနဲ့မှစပြောဖြစ်တာဆိုတော့ ပြန်ဖတ်ရတာရှက်တယ်သိလား ဆရာမကိုစကားလာပြောချင်တာလေ ဘယ်ကစပြောရမှန်းမသိဘူး အဲ့တာသီရိကိုကိုကသင်ပေးလိုက်တာ အဲ့လိုပြောဆိုပြီး😑',
+                image: 'firstconversation.jpg'  // Path to the uploaded image
+            },
+            phoneCall: {
+                title: 'First Phone Call',
+                description: 'ဘာလို့မှန်းတော့မသိဘူး သဘောကျမိတဲ့ထဲမှာ ဆရာမ အသံလေးလည်းပါတယ် ဆရာမနဲ့ဖုန်းပြောဖူးချင်တာ မခေါ်ရဲခဲ့ပါဘူး တအားချေတော့ အော်လွှတ်မှာကြောက်လို့ အဲ့နေ့ကတော့တော်တော်လေးသတ္တိမွေးပြီး ခေါ်လိုက်တာသိလား ဖုန်းမခေါ်ခင်ကလည်း ပြောမဲ့စကားတွေစာစီရသေးတယ် တကယ်လည်းပြောရော ကြောက်ပြီးမေ့ကုန်ရော🙁',
+                image: 'firstcall.jpg'
+            },
+            present: {
+                title: 'First Meeting',
+                description: 'ဆရာမတို့အိမ်ထဲဝင်တော့မယ့်အချိန် စာသင်နေရင်းထွက်ပြီး ဟိတ်လို့ခေါ်သံကြားတော့လှည့်ကြည့်လိုက်တာ ဆရာမ ဖြစ်နေတယ်😝 အင်္ကျီအနီလေးနဲ့ ရုတ်တရက်လန့်သွားတာသိလား ဘာလုပ်လို့လုပ်ရမလဲမသိဘူး ကြောက်လည်းကြောက်တယ် ရှက်လည်းရှက်တယ်🙁 \n **အဲ့တုန်းကတော့တကယ် move on မယ်ဆိုပြီးလာခဲ့တာပဲ အခုတော့ အသက်ကြီးကြီးအဒေါ်ကြီးနဲ့ယူလိုက်ရပြီ😝',
+                image: 'candy.jpg'
+            },
+            date: {
+                title: 'Confession',
+                description: 'ဆရာမသိလား တရားဝင်တွဲတယ်လို့သတ်မှတ်ထားတာက 14 ရက်နေ့ဆိုပေမယ့် ချစ်တယ်လို့ဝန်ခံလိုက်တာက 13 ရက်နေ့က🙄',
+                image: 'lovetalk.jpg'
+            },
+            letters: {
+                title: 'Love Letters',
+                description: 'ဆရာမသိလား တရားဝင်တွဲတယ်လို့သတ်မှတ်ထားတာက 14 ရက်နေ့ဆိုပေမယ့် ချစ်တယ်လို့ဝန်ခံလိုက်တာက 13 ရက်နေ့က🙄',
+                image: 'letters.jpg'
+            },
+            marriageCeremony: {
+                title: 'Marriage Ceremony',
+                description: 'Our marriage ceremony was the happiest day of my life. It marked the beginning of our forever.',
+                image: 'marriage_ceremony.jpg'
+            }
+        };
+
+        const selectedEvent = eventDetails[eventParam];
+
+        if (selectedEvent) {
+            document.getElementById('eventTitle').innerText = selectedEvent.title;
+            document.getElementById('eventDescription').innerText = selectedEvent.description;
+            document.getElementById('eventImage').src = selectedEvent.image;
+        } else {
+            document.getElementById('eventTitle').innerText = 'Event Not Found';
+            document.getElementById('eventDescription').innerText = 'Sorry, we couldn\'t find the details for this event.';
+        }
+    </script>
+
+</body>
+</html>
